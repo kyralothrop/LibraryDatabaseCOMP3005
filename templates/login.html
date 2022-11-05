@@ -1,0 +1,57 @@
+<!doctype html>
+<style>
+    #shift{
+        margin-left:40px;
+    }
+    .form-group{
+        width:300px;
+    }
+</style>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+    </head>
+
+    <body>
+        <div id = "shift">
+            <div class="container">
+                {% for message in get_flashed_messages() %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+                {% block content %} {% endblock %}
+            </div>
+            <br>
+            <h1>Welcome to the Library</h1>
+            <br>
+            <h3>Please Login</h3>
+            <form method="post">
+                <div class="form-group">
+                    <label for="title">Library Card Number:</label>
+                    <input type="text" name="library_card_num"
+                        placeholder="" class="form-control"
+                        value="{{ request.form['title'] }}"></input>
+                </div>
+                <div class="form-group">
+                    <label for="title">Username: </label>
+                    <input type="text" name="username"
+                        placeholder="" class="form-control"
+                        value="{{ request.form['title'] }}"></input>
+                </div>
+                <div class="form-group">
+                    <label for="title">Password: </label>
+                    <input type="password" name="password"
+                        placeholder="" class="form-control"
+                        value="{{ request.form['title'] }}"></input>
+                </div>
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<style>
+    #shift{
+        margin-left:40px;
+    }
+    #indexnav{
+        margin-left: 40px;
+    }
+</style>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a id = "indexnav" class="navbar-brand" href="{{ url_for('index', books=books, library_card_num = library_card_num)}}">Library Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('myBooks', library_card_num=library_card_num) }}">My Books</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id = "shift">
+            <br>
+            <h1>My Books</h1>
+            <br>
+            {% for book in books %}
+                <a href="{{ url_for('ownedBook', book_num=book['book_num'], library_card_num=library_card_num) }}">
+                    <h2>{{ book['title'] }} ({{ book['num_copies'] }})</h2>
+                </a>
+                <hr>
+            {% endfor %}
+        </div>
+    </body>
+</html>    
+
