@@ -1,7 +1,5 @@
 COMP 3005 winter 2022 README for Library Database Term Project Assignment, Version 1.0, 2022-04-10
 
-Technical Components of the Project: HTML, SQL, Database management, Python, Flask
-
 Program can be reached at:
 Web site: https://github.com/kyralothrop
 
